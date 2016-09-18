@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbe:messageSchema xmlns:sbe="http://fixprotocol.io/2016/sbe/sbe.xsd"
+                   package="tests.messages"
+                   id="1"
+                   version="1"
+                   semanticVersion="0.1.0"
+                   description="Test harness schema"
+                   byteOrder="littleEndian">
+    <types>
+        <composite name="messageHeader" description="Message identifiers and length of message root">
+            <type name="blockLength" primitiveType="uint16"/>
+            <type name="templateId" primitiveType="uint16"/>
+            <type name="schemaId" primitiveType="uint16"/>
+            <type name="version" primitiveType="uint16"/>
+        </composite>
+        <composite name="groupSizeEncoding" description="Repeating group dimensions">
+            <type name="blockLength" primitiveType="uint16"/>
+            <type name="numInGroup" primitiveType="uint16"/>
+        </composite>
+    </types>
+    <types>
+        <type name="ProductId" primitiveType="uint16"/>
+        <type name="ProductSymbol" primitiveType="char" length="5" characterEncoding="ASCII"/>
+    </types>
+    <sbe:message name="Request" id="1">
+        <field name="symbol" id="1" type="ProductSymbol"/>
+    </sbe:message>
+    <sbe:message name="Directory" id="2">
+        <field name="venue" id="1" type="ProductSymbol" />
+        <group name="Products" id="2" dimensionType="groupSizeEncoding" >
+            <field name="prod_id" id="3" type="ProductId"/>
+            <field name="symbol" id="4" type="ProductSymbol"/>
+        </group>
+    </sbe:message>
+</sbe:messageSchema>
