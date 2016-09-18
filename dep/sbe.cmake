@@ -1,4 +1,4 @@
-macro(AddSBE FileName Md5)
+macro(AddSBE FileName Md5 SbeVer)
     ExternalProject_Add(
         sbe
         URL "${FileName}"
@@ -23,6 +23,6 @@ macro(AddSBE FileName Md5)
         ${SBE_LIBRARY_DIR}/${CMAKE_STATIC_LIBRARY_PREFIX}sbe${CMAKE_STATIC_LIBRARY_SUFFIX}
     )
 
-    set(SBE_TOOL_JAR "${SBE_BINARY_DIR}/sbe-all/build/libs/sbe-all-${SBE_VERSION}.jar")
+    set(SBE_TOOL_JAR "${SBE_BINARY_DIR}/sbe-all/build/libs/sbe-all-${SbeVer}.jar")
 
 endmacro(AddSBE)

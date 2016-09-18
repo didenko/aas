@@ -38,7 +38,7 @@ AddGtest("${CMAKE_SOURCE_DIR}/dep/gtest-1.8.0.tar.gz" 91500c3d80ac1273fa56d405ec
 
 include(dep/sbe.cmake)
 set(SBE_VERSION "1.5.1")
-AddSBE("${CMAKE_SOURCE_DIR}/dep/sbe-${SBE_VERSION}.tar.gz" 8dfe73c1a501fd7915b0b33a038b32f5)
+AddSBE("${CMAKE_SOURCE_DIR}/dep/sbe-${SBE_VERSION}.tar.gz" 8dfe73c1a501fd7915b0b33a038b32f5 "${SBE_VERSION}")
 
 include(dep/aeron.cmake)
 set(AERON_VERSION "1.0.1")
